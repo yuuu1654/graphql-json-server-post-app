@@ -1,0 +1,62 @@
+# Query
+
+# 全件取得
+query {
+  allPosts {
+    id
+    title
+    views
+    user_id
+  }
+  allUsers {
+    id
+    name
+  }
+  allComments {
+    id
+    post_id
+    body
+    date
+  }
+
+# 単一レコード取得
+  Post(id: 1) {
+    id
+    title
+  }
+  User(id: 123) {
+    id
+    name
+  }
+  Comment(id: 987) {
+    id
+    body
+  }
+}
+
+
+# Mutation操作
+
+# 作成
+mutation {
+  createPost(
+    title: "新しい投稿"
+    views: 0
+    user_id: 123
+  ) {
+    id
+    title
+  }
+
+# 更新
+  updatePost(
+    id: 1
+    title: "更新された投稿"
+  ) {
+    id
+    title
+  }
+
+# 削除
+  removePost(id: 1)
+}
